@@ -1,3 +1,5 @@
+This is a forked version with updated package versions to solve the ListView Depracated errors
+
 [![NPM Version](https://img.shields.io/npm/v/react-native-form-builder.svg?style=flat)](https://www.npmjs.com/package/react-native-form-builder)
 # react-native-form-builder
 ![alt text](http://g.recordit.co/7PqX8Ft7VO.gif)

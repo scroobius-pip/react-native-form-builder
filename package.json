@@ -1,6 +1,6 @@
 {
-   "name": "react-native-form-builder",
-   "version": "1.0.16",
+   "name": "react-native-form-builder2",
+   "version": "1.1.0",
    "description": "Generate Awesome Forms In an easy way",
    "main": "src/index.js",
    "scripts": {
@@ -11,15 +11,15 @@
       "url": "git+https://github.com/bietkul/react-native-form-builder.git"
    },
    "_npmUser": {
-      "name": "anjuma",
-      "email": "kuldepsaxena@155@gmail.com"
+      "name": "simdi",
+      "email": "simdi.freelancer@gmail.com"
    },
-   "author": "Kuldeep Saxena",
+   "author": "Simdi Jinkins",
    "license": "MIT",
    "bugs": {
-      "url": "https://github.com/bietkul/react-native-form-builder/issues"
+      "url": "https://github.com/scroobius-pip/react-native-form-builder/issues"
    },
-   "homepage": "https://github.com/bietkul/react-native-form-builder#readme",
+   "homepage": "https://github.com/scroobius-pip/react-native-form-builder#readme",
    "keywords": [
       "android",
       "ios",
@@ -33,21 +33,21 @@
       "builder"
    ],
    "dependencies": {
-      "fs-extra": "^3.0.1",
-      "lodash": "^4.17.4",
-      "print-message": "^2.1.0",
-      "prop-types": "^15.6.0",
-      "react-native-i18n": "^2.0.0",
-      "react-native-keyboard-aware-scroll-view": "^0.8.0"
+      "fs-extra": "^8.1.0",
+      "lodash": "^4.17.15",
+      "print-message": "^3.0.1",
+      "prop-types": "^15.7.2",
+      "react-native-i18n": "^2.0.15",
+      "react-native-keyboard-aware-scroll-view": "^0.9.1"
    },
    "devDependencies": {
-      "native-base": "^2.12.0",
+      "native-base": "^2.13.8",
       "react": "^16.8.0",
       "react-native": "0.60.0"
    },
    "peerDependencies": {
-      "react-native": ">=0.60.0",
-      "react": ">=15.5.0",
-      "native-base": "^2.12.0"
+      "react-native": ">=0.61.5",
+      "react": ">=16.12.0",
+      "native-base": "^2.13.8"
    }
 }
