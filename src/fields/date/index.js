@@ -1,9 +1,12 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { View, Text } from 'native-base';
-import I18n from 'react-native-i18n';
+import I18n from 'i18n-js';
 import { Platform, DatePickerIOS, DatePickerAndroid, TouchableOpacity, TimePickerAndroid } from 'react-native';
 import Panel from '../../components/panel';
+import * as Localization from 'expo-localization';
+I18n.fallbacks = true
+I18n.locale = Localization.locale;
 
 export default class DatePickerField extends Component {
   static defaultProps = {
@@ -76,7 +79,7 @@ export default class DatePickerField extends Component {
     const mode = attributes.mode || 'datetime';
     return (
       <View>
-        { (Platform.OS === 'ios') ?
+        {(Platform.OS === 'ios') ?
           <View
             style={{
               backgroundColor: theme.pickerBgColor,
@@ -103,35 +106,35 @@ export default class DatePickerField extends Component {
                 }}
               >
                 {
-                (mode ?
-                  (mode === 'date'
-                  || mode === 'datetime')
-                : true) &&
-                <View
-                  style={{
-                    marginHorizontal: 5,
-                  }}
-                >
-                  <Text>
-                    { (value && I18n.strftime(value, '%d %b %Y')) || 'None' }
-                  </Text>
-                </View>
-            }
+                  (mode ?
+                    (mode === 'date'
+                      || mode === 'datetime')
+                    : true) &&
+                  <View
+                    style={{
+                      marginHorizontal: 5,
+                    }}
+                  >
+                    <Text>
+                      {(value && I18n.strftime(value, '%d %b %Y')) || 'None'}
+                    </Text>
+                  </View>
+                }
                 {
-                (mode ?
-                  (mode === 'time'
-                  || mode === 'datetime')
-                : true) &&
-                <View
-                  style={{
-                    marginHorizontal: 5,
-                  }}
-                >
-                  <Text>
-                    { (value && I18n.strftime(value, '%I:%M %p')) || 'None' }
-                  </Text>
-                </View>
-            }
+                  (mode ?
+                    (mode === 'time'
+                      || mode === 'datetime')
+                    : true) &&
+                  <View
+                    style={{
+                      marginHorizontal: 5,
+                    }}
+                  >
+                    <Text>
+                      {(value && I18n.strftime(value, '%I:%M %p')) || 'None'}
+                    </Text>
+                  </View>
+                }
               </View>
             </TouchableOpacity>
             <ErrorComponent {...{ attributes, theme }} />
@@ -148,7 +151,7 @@ export default class DatePickerField extends Component {
               />
             </Panel>
           </View>
-            :
+          :
           <TouchableOpacity
             style={{
               backgroundColor: theme.pickerBgColor,
@@ -170,7 +173,7 @@ export default class DatePickerField extends Component {
               }}
             >
               {
-                  (attributes.mode === 'date'
+                (attributes.mode === 'date'
                   || attributes.mode === 'datetime')
                 &&
                 <TouchableOpacity
@@ -180,28 +183,28 @@ export default class DatePickerField extends Component {
                   }}
                 >
                   <Text onPress={this.showDatePicker}>
-                    { (value && I18n.strftime(value, '%d %b %Y')) || 'Date' }
+                    {(value && I18n.strftime(value, '%d %b %Y')) || 'Date'}
                   </Text>
                 </TouchableOpacity>
-            }
+              }
               {
                 (attributes.mode === 'time'
-                || attributes.mode === 'datetime')
-              &&
-              <TouchableOpacity
-                style={{
-                  marginHorizontal: 5,
-                }}
-              >
-                <Text onPress={this.showTimePicker}>
-                  { (value && I18n.strftime(value, '%I:%M %p')) || 'Time' }
-                </Text>
+                  || attributes.mode === 'datetime')
+                &&
+                <TouchableOpacity
+                  style={{
+                    marginHorizontal: 5,
+                  }}
+                >
+                  <Text onPress={this.showTimePicker}>
+                    {(value && I18n.strftime(value, '%I:%M %p')) || 'Time'}
+                  </Text>
                 </TouchableOpacity>
-            }
+              }
             </View>
             <ErrorComponent {...{ attributes, theme }} />
           </TouchableOpacity>
-          }
+        }
       </View>
     );
   }

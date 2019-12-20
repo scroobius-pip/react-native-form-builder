@@ -37,7 +37,8 @@
       "lodash": "^4.17.15",
       "print-message": "^3.0.1",
       "prop-types": "^15.7.2",
-      "react-native-i18n": "^2.0.15",
+      "expo-location": "~8.0.0",
+      "i18n-js": "^3.5.0",
       "react-native-keyboard-aware-scroll-view": "^0.9.1"
    },
    "devDependencies": {
