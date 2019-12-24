@@ -228,7 +228,9 @@ number
 | :------------ |:--------------- |:---------------| :-----|
 | iconName | N/A | `string` | Sets the icon, you can use any icon name which is available in `react-native-vector-icons`|  
 | iconOrientaion | `left (default)` or `right` | `string` | Adjust icon orientation |
-| props | N/A | `object` | Here you can define extra props which are applicable for react native TextInput Component. For e.g. { multiline: true, secureTextEntry : true .... }
+| props | N/A | `object` | Here you can define extra props which are applicable for react native TextInput Component. For e.g. { multiline: true, 
+| itemProps | N/A | `object` | Here you can define extra props for the underlying native base Item Component e.g {floatingLabel: true} 
+secureTextEntry : true .... }
 
 #### Value Type : `String` ( Except for type `number` )
 

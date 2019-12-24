@@ -15,6 +15,11 @@ export default class TextInputField extends Component {
   handleChange(text) {
     this.props.updateValue(this.props.attributes.name, text);
   }
+
+  state = {
+    focused: false
+  }
+
   render() {
     const { theme, attributes, ErrorComponent } = this.props;
     const inputProps = attributes.props;
@@ -23,10 +28,10 @@ export default class TextInputField extends Component {
       <ListItem style={{ borderBottomWidth: 0, paddingVertical: 5 }}>
         <View style={{ flex: 1 }}>
           <View>
-            <Item error={theme.changeTextInputColorOnError ? attributes.error : null}>
-              { attributes.icon &&
-              <Icon style={{color:theme.textInputIconColor}} name={attributes.icon} />
-                }
+            <Item style={{ borderColor: 'transparent' }} error={theme.changeTextInputColorOnError ? attributes.error : null}>
+              {attributes.icon &&
+                <Icon style={{ color: this.state.focused?( inputProps.underlineColorAndroid || theme.textInputIconColor):'lightgrey' }} name={attributes.icon} />
+              }
               <Input
                 style={{
                   height: inputProps && inputProps.multiline && (Platform.OS === 'ios' ? undefined : null),
@@ -38,6 +43,8 @@ export default class TextInputField extends Component {
                 secureTextEntry={attributes.secureTextEntry || attributes.type === 'password'}
                 placeholder={attributes.label}
                 blurOnSubmit={false}
+                onFocus={() => this.setState({ focused: true })}
+                onBlur={() => this.setState({ focused: false })}
                 onSubmitEditing={() => this.props.onSummitTextInput(this.props.attributes.name)}
                 placeholderTextColor={theme.inputColorPlaceholder}
                 editable={attributes.editable}
@@ -46,7 +53,7 @@ export default class TextInputField extends Component {
                 onChangeText={text => this.handleChange(text)}
                 {...inputProps}
               />
-              { theme.textInputErrorIcon && attributes.error ?
+              {theme.textInputErrorIcon && attributes.error ?
                 <Icon name={theme.textInputErrorIcon} /> : null}
             </Item>
           </View>
