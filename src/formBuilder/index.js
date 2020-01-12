@@ -18,7 +18,7 @@ const DefaultErrorComponent = (props) => {
   if (attributes.error) {
     return (
       <Text style={{ color: theme.errorMsgColor }}>
-        { attributes.errorMsg }
+        {attributes.errorMsg}
       </Text>
     );
   }
@@ -300,7 +300,7 @@ export default class FormBuilder extends Component {
             return (
               <CustomComponent
                 ref={(c) => { this[field.name] = c; }}
-                {... commonProps}
+                {...commonProps}
                 {...CustomComponentProps}
                 onSummitTextInput={this.onSummitTextInput}
               />
@@ -316,7 +316,7 @@ export default class FormBuilder extends Component {
             return (
               <TextInputField
                 ref={(c) => { this[field.name] = c; }}
-                {... commonProps}
+                {...commonProps}
                 onSummitTextInput={this.onSummitTextInput}
               />
             );
@@ -324,35 +324,35 @@ export default class FormBuilder extends Component {
             return (
               <PickerField
                 ref={(c) => { this[field.name] = c; }}
-                {... commonProps}
+                {...commonProps}
               />
             );
           case 'select':
             return (
               <SelectField
                 ref={(c) => { this[field.name] = c; }}
-                {... commonProps}
+                {...commonProps}
               />
             );
           case 'switch':
             return (
               <SwitchField
                 ref={(c) => { this[field.name] = c; }}
-                {... commonProps}
+                {...commonProps}
               />
             );
           case 'date':
             return (
               <DateField
                 ref={(c) => { this[field.name] = c; }}
-                {... commonProps}
+                {...commonProps}
               />
             );
           case 'group':
             return (
               <FormField
                 ref={(c) => { this[field.name] = c; }}
-                {... commonProps}
+                {...commonProps}
                 {...this.props}
               />
             );
@@ -365,7 +365,7 @@ export default class FormBuilder extends Component {
   }
   render() {
     return (
-      <KeyboardAwareScrollView
+      <View
         keyboardShouldPersistTaps="always"
         extraScrollHeight={20}
         {...this.props.scrollViewProps}
@@ -373,7 +373,7 @@ export default class FormBuilder extends Component {
         <View>
           {this.generateFields() || <View />}
         </View>
-      </KeyboardAwareScrollView>
+      </View>
 
     );
   }
